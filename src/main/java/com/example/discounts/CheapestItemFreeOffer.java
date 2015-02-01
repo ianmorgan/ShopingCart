@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class CheapestItemFreeOffer implements DiscountOffer {
+public class CheapestItemFreeOffer implements Offer {
 
     @Override
     public Discount apply(List<Item> items) {
@@ -21,7 +21,7 @@ public class CheapestItemFreeOffer implements DiscountOffer {
             }
         }
 
-        return new Discount(discountedItem, Discount.Type.CheapestItemFree,discount);
+        return new Discount(discountedItem, this, discount);
     }
 
     @Override

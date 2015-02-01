@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class TwoAtSpecialPriceOffer implements DiscountOffer {
+public class TwoAtSpecialPriceOffer implements Offer {
     private double discount;
 
     public TwoAtSpecialPriceOffer(double discount) {
@@ -16,7 +16,8 @@ public class TwoAtSpecialPriceOffer implements DiscountOffer {
 
     @Override
     public Discount apply(List<Item> items) {
-        return new Discount(items.get(1),this.type(),discount);
+        Item discountedItem = items.get(1);
+        return new Discount(discountedItem, discountedItem.discountOffer(), discount);
     }
 
     @Override

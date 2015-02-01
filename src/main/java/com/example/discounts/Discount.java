@@ -5,16 +5,16 @@ import com.example.Item;
 import java.util.Formatter;
 
 /**
- * Created by ianmorgan on 1/02/15.
+ * Represents a discount applied to an item in a list of matching items
  */
 public class Discount {
     private Item item;
-    private Type type;
+    private Offer offer;
     private double discountAmount;
 
-    public Discount(Item item, Type type, double discountAmount) {
+    public Discount(Item item, Offer offer, double discountAmount) {
         this.item = item;
-        this.type = type;
+        this.offer = offer;
         this.discountAmount = discountAmount;
     }
 
@@ -23,7 +23,7 @@ public class Discount {
     }
 
     public Type discountRule() {
-        return type;
+        return offer.type();
     }
 
     public double discountAmount() {
@@ -31,7 +31,7 @@ public class Discount {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb);
         formatter.format("%-10s £ %5.2f (%s)",
@@ -44,7 +44,7 @@ public class Discount {
         NoDiscount("Full Price"),
         TwoForThree("3 for 2"),
         TwoAtSpecialPrice("Buy 2 offer"),
-        CheapestItemFree ("Cheapest free");
+        CheapestItemFree("Cheapest free");
 
         Type(String label) {
             this.label = label;

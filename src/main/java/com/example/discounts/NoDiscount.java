@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class NoDiscount implements DiscountOffer {
+public class NoDiscount implements Offer {
     @Override
     public Discount apply(List<Item> items) {
         return null;

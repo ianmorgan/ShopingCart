@@ -7,10 +7,11 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class ThreeForTwoOffer implements DiscountOffer{
+public class ThreeForTwoOffer implements Offer {
     @Override
     public Discount apply(List<Item> items) {
-        return new Discount(items.get(2), Discount.Type.TwoForThree,items.get(2).price());
+        Item discountedItem = items.get(2);
+        return new Discount(discountedItem, discountedItem.discountOffer(), items.get(2).price());
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class TwoAtSpecialPriceDiscounter implements Discounter {
 
-    Set<DiscountOffer> matchedOffer = new HashSet<DiscountOffer>();
+    Set<Offer> matchedOffer = new HashSet<Offer>();
 
     @Override
     public Discount applyDiscount(Item item) {

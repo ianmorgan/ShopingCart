@@ -1,7 +1,6 @@
 package com.example;
 
-import com.example.discounts.Discount;
-import com.example.discounts.DiscountOffer;
+import com.example.discounts.Offer;
 import com.example.discounts.NoDiscount;
 
 import java.util.Formatter;
@@ -12,9 +11,9 @@ import java.util.Formatter;
 public class Item {
     private final String name;
     private final double price;
-    private final DiscountOffer discountOffer;
+    private final Offer discountOffer;
 
-    public Item(String name, double price, DiscountOffer discountOffer) {
+    public Item(String name, double price, Offer discountOffer) {
         this.name = name;
         this.price = price;
         this.discountOffer = discountOffer;
@@ -32,7 +31,7 @@ public class Item {
         return price;
     }
 
-    public DiscountOffer discountOffer() {
+    public Offer discountOffer() {
         return discountOffer;
     }
 

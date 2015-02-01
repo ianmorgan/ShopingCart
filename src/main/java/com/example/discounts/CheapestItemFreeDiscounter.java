@@ -11,24 +11,23 @@ import java.util.Map;
  * Created by ianmorgan on 1/02/15.
  */
 public class CheapestItemFreeDiscounter implements Discounter {
-    Map<DiscountOffer, List<Item>> matchingItems = new HashMap<DiscountOffer, List<Item>>();
+    Map<Offer, List<Item>> matchingItems = new HashMap<Offer, List<Item>>();
 
     public Discount applyDiscount(Item item) {
         Discount result = null;
         if (Discount.Type.CheapestItemFree.equals(item.discountOffer().type())) {
-            List<Item> items = matchingItems.get(item.discountOffer());
+            Offer offer = item.discountOffer();
+            List<Item> items = matchingItems.get(offer);
             if (items == null) {
                 items = new ArrayList<Item>();
-                matchingItems.put(item.discountOffer(), items);
+                matchingItems.put(offer, items);
             }
             items.add(item);
 
-            if (items.size()==3) {
-                result = new Discount(item, Discount.Type.CheapestItemFree, item.price());
-                matchingItems.remove(item.discountOffer());
+            if (items.size() == 3) {
+                result = offer.apply(items);
+                matchingItems.remove(offer);
             }
-
-
         }
 
         return result;

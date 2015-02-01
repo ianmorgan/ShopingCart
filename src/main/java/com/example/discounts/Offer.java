@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public interface DiscountOffer {
+public interface Offer {
 
     Discount apply(List<Item> items);
 

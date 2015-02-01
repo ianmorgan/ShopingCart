@@ -19,7 +19,7 @@ public class ThreeForTwoDiscounter implements Discounter {
                 matchingItems.put(item, 1);
             } else if (count == 2) {
                 matchingItems.remove(item);
-                result = new Discount(item, Discount.Type.TwoForThree, item.price());
+                result = new Discount(item, item.discountOffer(), item.price());
 
             } else {
                 matchingItems.put(item, ++count);
