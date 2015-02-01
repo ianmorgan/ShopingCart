@@ -1,8 +1,6 @@
 package com.example;
 
-import com.example.discounts.Discount;
-import com.example.discounts.Discounter;
-import com.example.discounts.TwoForDisounter;
+import com.example.discounts.*;
 
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -19,7 +17,10 @@ public class Checkout {
 
     public Checkout() {
         disounters = new ArrayList<Discounter>();
-        disounters.add(new TwoForDisounter());
+        disounters.add(new ThreeForTwoDiscounter());
+        disounters.add(new TwoAtSpecialPriceDiscounter());
+        disounters.add(new CheapestItemFreeDiscounter());
+
     }
 
 

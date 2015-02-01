@@ -9,12 +9,12 @@ import java.util.Formatter;
  */
 public class Discount {
     private Item item;
-    private Item.DiscountRule discountRule;
+    private Type type;
     private double discountAmount;
 
-    public Discount(Item item, Item.DiscountRule discountRule, double discountAmount) {
+    public Discount(Item item, Type type, double discountAmount) {
         this.item = item;
-        this.discountRule = discountRule;
+        this.type = type;
         this.discountAmount = discountAmount;
     }
 
@@ -22,8 +22,8 @@ public class Discount {
         return item;
     }
 
-    public Item.DiscountRule discountRule() {
-        return discountRule;
+    public Type discountRule() {
+        return type;
     }
 
     public double discountAmount() {
@@ -34,8 +34,26 @@ public class Discount {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb);
-        formatter.format("%-10s £ %5.2f %s", item.name(), discountAmount(), discountRule());
+        formatter.format("%-10s £ %5.2f (%s)",
+                item.name(), -discountAmount(), discountRule().label());
         return sb.toString();
     }
 
+    public enum Type {
+
+        NoDiscount("Full Price"),
+        TwoForThree("3 for 2"),
+        TwoAtSpecialPrice("Buy 2 offer"),
+        CheapestItemFree ("Cheapest free");
+
+        Type(String label) {
+            this.label = label;
+        }
+
+        private String label;
+
+        public String label() {
+            return label;
+        }
+    }
 }

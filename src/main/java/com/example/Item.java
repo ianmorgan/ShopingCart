@@ -1,5 +1,9 @@
 package com.example;
 
+import com.example.discounts.Discount;
+import com.example.discounts.DiscountOffer;
+import com.example.discounts.NoDiscount;
+
 import java.util.Formatter;
 
 /**
@@ -8,16 +12,16 @@ import java.util.Formatter;
 public class Item {
     private final String name;
     private final double price;
-    private final DiscountRule discountRule;
+    private final DiscountOffer discountOffer;
 
-    public Item(String name, double price, DiscountRule discountRule) {
+    public Item(String name, double price, DiscountOffer discountOffer) {
         this.name = name;
         this.price = price;
-        this.discountRule = discountRule;
+        this.discountOffer = discountOffer;
     }
 
     public Item(String name, double price) {
-        this(name, price, DiscountRule.NoDiscount);
+        this(name, price, new NoDiscount());
     }
 
     public String name() {
@@ -28,8 +32,8 @@ public class Item {
         return price;
     }
 
-    public DiscountRule discountRule() {
-        return discountRule;
+    public DiscountOffer discountOffer() {
+        return discountOffer;
     }
 
     @Override
@@ -46,7 +50,7 @@ public class Item {
             Item otherItem = (Item) other;
             return this.price() == otherItem.price() &&
                     this.name().equals(otherItem.name()) &&
-                    this.discountRule().equals(otherItem.discountRule());
+                    this.discountOffer().equals(otherItem.discountOffer());
         }
         return false;
     }
@@ -56,8 +60,4 @@ public class Item {
         return name().hashCode();
     }
 
-    public enum DiscountRule {
-        NoDiscount,
-        TwoForThree
-    }
 }

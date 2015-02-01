@@ -13,6 +13,7 @@ import static org.testng.Assert.assertEquals;
 @Test
 public class SimpleCheckoutScenarios extends BaseCheckoutScenarios {
 
+    @Test
     public void checkoutASingleItem() {
         cart.addItem(new Item("Milk", 0.99));
 
@@ -20,6 +21,7 @@ public class SimpleCheckoutScenarios extends BaseCheckoutScenarios {
                 "TOTAL      £  0.99");
     }
 
+    @Test
     public void checkoutTwoDifferentItems() {
         cart.addItem(new Item("Milk", 0.99));
         cart.addItem(new Item("Bread", 1.58));
@@ -29,6 +31,7 @@ public class SimpleCheckoutScenarios extends BaseCheckoutScenarios {
                 "TOTAL      £  2.57");
     }
 
+    @Test
     public void checkoutMultipleIdenticalItems() {
         cart.addItem(new Item("Milk", 0.99));
         cart.addItem(new Item("Milk", 0.99));

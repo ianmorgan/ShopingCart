@@ -3,7 +3,7 @@ package com.example.discounts;
 import com.example.Item;
 
 /**
- * Created by ianmorgan on 1/02/15.
+ * Accumulate items that match a discount rules.
  */
 public interface Discounter {
     Discount applyDiscount(Item item);
