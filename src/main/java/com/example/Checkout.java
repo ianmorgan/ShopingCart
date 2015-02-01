@@ -20,6 +20,7 @@ public class Checkout {
         disounters.add(new ThreeForTwoDiscounter());
         disounters.add(new TwoAtSpecialPriceDiscounter());
         disounters.add(new CheapestItemFreeDiscounter());
+        disounters.add(new FreeWithOtherItemsDiscounter());
 
     }
 
@@ -36,7 +37,7 @@ public class Checkout {
 
                 if (result != null) {
                     discounts.add(result);
-                    break;  //assume the businesss rule is only one discount possible
+                    break;  //assume the business rule is only one discount possible per item
                 }
             }
 

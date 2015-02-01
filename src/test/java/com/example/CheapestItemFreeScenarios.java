@@ -9,7 +9,6 @@ public class CheapestItemFreeScenarios extends BaseCheckoutScenarios {
     private CheapestItemFreeOffer offer1 = new CheapestItemFreeOffer();
     private CheapestItemFreeOffer offer2 = new CheapestItemFreeOffer();
 
-
     @Test
     public void cheapestMatchingItemIsFree() {
         cart.addItem(new Item("Coffee", 3.99, offer1));

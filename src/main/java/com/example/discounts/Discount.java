@@ -44,7 +44,8 @@ public class Discount {
         NoDiscount("Full Price"),
         TwoForThree("3 for 2"),
         TwoAtSpecialPrice("Buy 2 offer"),
-        CheapestItemFree("Cheapest free");
+        CheapestItemFree("Cheapest free"),
+        FreeWithOtherItemsOffer("Free with others");
 
         Type(String label) {
             this.label = label;
