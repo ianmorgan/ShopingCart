@@ -2,7 +2,7 @@ package com.example.discounts.cheapestItemFree;
 
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class CheapestItemFreeOffer implements Offer {
+public class CheapestItemFreeOffer implements DiscountOffer {
 
     @Override
     public Iterable<AppliedDiscount> apply(List<Item> items) {

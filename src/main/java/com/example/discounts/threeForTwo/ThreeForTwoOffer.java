@@ -2,7 +2,7 @@ package com.example.discounts.threeForTwo;
 
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Apply the discount for a ThreeForTywo
  */
-public class ThreeForTwoOffer implements Offer {
+public class ThreeForTwoOffer implements DiscountOffer {
     @Override
     public Iterable<AppliedDiscount> apply(List<Item> items) {
         Item discountedItem = items.get(2);

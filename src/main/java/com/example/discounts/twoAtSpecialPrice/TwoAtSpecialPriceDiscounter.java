@@ -3,7 +3,7 @@ package com.example.discounts.twoAtSpecialPrice;
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
 import com.example.discounts.Discounter;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class TwoAtSpecialPriceDiscounter implements Discounter {
 
-    private Set<Offer> matchedOffer = new HashSet<Offer>();
+    private Set<DiscountOffer> matchedOffer = new HashSet<DiscountOffer>();
 
     @Override
     public Iterable<AppliedDiscount> checkDiscounts(Item item) {

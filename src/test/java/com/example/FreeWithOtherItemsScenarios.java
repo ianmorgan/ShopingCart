@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.testng.Assert.fail;
 
+@Test
 public class FreeWithOtherItemsScenarios extends BaseCheckoutScenarios {
     private FreeWithOtherItemsOffer oneFreeWithThree = new FreeWithOtherItemsOffer(3, 1);
     private FreeWithOtherItemsOffer twoFreeWithTwo = new FreeWithOtherItemsOffer(2, 2);

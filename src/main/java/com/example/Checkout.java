@@ -27,21 +27,18 @@ public class Checkout {
         discounters.add(new CheapestItemFreeDiscounter());
         discounters.add(new FreeWithOtherItemsDiscounter());
     }
-
-
+    
     public String generateReceipt(Cart cart) {
         StringBuilder sb = new StringBuilder();
         List<AppliedDiscount> discounts = new ArrayList<AppliedDiscount>();
 
         double total = 0;
         for (Item item : cart.items()) {
-
             for (Discounter discounter : discounters) {
                 for (AppliedDiscount appliedDiscount : discounter.checkDiscounts(item)) {
                     discounts.add(appliedDiscount);
                 }
             }
-
             total = total + item.price();
             if (sb.length() > 0) {
                 sb.append("\n");

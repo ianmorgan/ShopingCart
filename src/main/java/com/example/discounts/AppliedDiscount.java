@@ -9,10 +9,10 @@ import java.util.Formatter;
  */
 public class AppliedDiscount {
     private Item item;
-    private Offer offer;
+    private DiscountOffer offer;
     private double discountAmount;
 
-    public AppliedDiscount(Item item, Offer offer, double discountAmount) {
+    public AppliedDiscount(Item item, DiscountOffer offer, double discountAmount) {
         this.item = item;
         this.offer = offer;
         this.discountAmount = discountAmount;

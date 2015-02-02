@@ -17,7 +17,8 @@ public interface Discounter {
      * receipt.
      * <p/>
      * In this model the discount can be displayed on the receipt / terminal as soon as the
-     * last item that matches the rule is scanned.
+     * last item that matches the rule is scanned (though for simplicity the current checkout
+     * prints them all at the end)
      *
      * @param item
      * @return the applied discount or null if adding this item

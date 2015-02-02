@@ -2,7 +2,7 @@ package com.example.discounts.twoAtSpecialPrice;
 
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Calculate the discounts to be applied on a 2 at a special price offer
  */
-public class TwoAtSpecialPriceOffer implements Offer {
+public class TwoAtSpecialPriceOffer implements DiscountOffer {
     private double discount;
 
     public TwoAtSpecialPriceOffer(double discount) {

@@ -10,7 +10,7 @@ import java.util.List;
  * job is to collect matching items until a discount can be triggered.
  *
  */
-public interface Offer {
+public interface DiscountOffer {
 
     /**
      * Calculate the discount(s).

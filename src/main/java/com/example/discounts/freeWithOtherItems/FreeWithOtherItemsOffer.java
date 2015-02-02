@@ -2,14 +2,14 @@ package com.example.discounts.freeWithOtherItems;
 
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.List;
 
 /**
  * Created by ianmorgan on 1/02/15.
  */
-public class FreeWithOtherItemsOffer implements Offer {
+public class FreeWithOtherItemsOffer implements DiscountOffer {
 
     private int numberToBuy;
     private int numberFree;

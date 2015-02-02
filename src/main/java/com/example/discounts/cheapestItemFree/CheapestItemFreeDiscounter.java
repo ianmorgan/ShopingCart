@@ -3,7 +3,7 @@ package com.example.discounts.cheapestItemFree;
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
 import com.example.discounts.Discounter;
-import com.example.discounts.Offer;
+import com.example.discounts.DiscountOffer;
 
 import java.util.*;
 
@@ -11,11 +11,11 @@ import java.util.*;
  * Keep track of the items for a "Cheapest item is free" discount model
  */
 public class CheapestItemFreeDiscounter implements Discounter {
-    Map<Offer, List<Item>> matchingItems = new HashMap<Offer, List<Item>>();
+    Map<DiscountOffer, List<Item>> matchingItems = new HashMap<DiscountOffer, List<Item>>();
 
     public Iterable<AppliedDiscount> checkDiscounts(Item item) {
         if (AppliedDiscount.Type.CheapestItemFree.equals(item.discountOffer().type())) {
-            Offer offer = item.discountOffer();
+            DiscountOffer offer = item.discountOffer();
             List<Item> items = matchingItems.get(offer);
             if (items == null) {
                 items = new ArrayList<Item>();
