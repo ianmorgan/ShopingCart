@@ -7,7 +7,7 @@ import static org.testng.Assert.assertEquals;
 
 /**
  * The simple examples for shopping carts without any special
- * prices applied.
+ * discounts applied.
  */
 
 @Test

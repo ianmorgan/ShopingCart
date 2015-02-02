@@ -4,21 +4,26 @@ import com.example.Item;
 
 /**
  * Accumulate items that match a discount rules.
- * Follows an accumulator type pattern.
- * <p/>
- * In the current an implementation is required for each new discount /
- * special offer rule, but they often followed a common pattern, which suggests
- * this could be refined to a generic class.
+ * Follows an accumulator type pattern. Different implementation
+ * are required for each discount as the rules for accumulating
+ * items that match the offer will vary.
  */
 public interface Discounter {
 
     /**
-     * Check if the item matches
+     * Check the item. If it has an offer attached to it that matched the discount
+     * rule then store this item and when enough items have been received to
+     * match the rule then return the details of the discount to be applied to the
+     * receipt.
+     * <p/>
+     * In this model the discount can be displayed on the receipt / terminal as soon as the
+     * last item that matches the rule is scanned.
      *
      * @param item
-     * @return
+     * @return the applied discount or null if adding this item
+     * didn't trigger a new discount.
      */
-    Discount applyDiscount(Item item);
+    Iterable<AppliedDiscount> checkDiscounts(Item item);
 
 
 }

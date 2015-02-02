@@ -1,7 +1,6 @@
 package com.example;
 
-import com.example.discounts.ThreeForTwoOffer;
-import com.example.discounts.TwoAtSpecialPriceOffer;
+import com.example.discounts.twoAtSpecialPrice.TwoAtSpecialPriceOffer;
 import org.testng.annotations.Test;
 
 /**

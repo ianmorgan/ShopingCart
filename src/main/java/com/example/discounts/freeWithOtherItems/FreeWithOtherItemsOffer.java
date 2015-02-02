@@ -1,6 +1,8 @@
-package com.example.discounts;
+package com.example.discounts.freeWithOtherItems;
 
 import com.example.Item;
+import com.example.discounts.AppliedDiscount;
+import com.example.discounts.Offer;
 
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class FreeWithOtherItemsOffer implements Offer {
     }
 
     @Override
-    public Discount apply(List<Item> items) {
+    public Iterable<AppliedDiscount> apply(List<Item> items) {
         Item discountedItem = items.get(1);
         //return new Discount(discountedItem, discountedItem.discountOffer(), discount);
 
@@ -44,8 +46,8 @@ public class FreeWithOtherItemsOffer implements Offer {
     }
 
     @Override
-    public Discount.Type type() {
-        return Discount.Type.FreeWithOtherItemsOffer;
+    public AppliedDiscount.Type type() {
+        return AppliedDiscount.Type.FreeWithOtherItemsOffer;
     }
 
 

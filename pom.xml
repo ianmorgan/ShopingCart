@@ -42,13 +42,39 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.7.2</version>
+
+				<configuration>
+					<includes>
+						<include>**/*Scenarios.java</include>
+						<include>**/Test*.java</include>
+						<include>**/*Test.java</include>
+						<include>**/*TestCase.java</include>
+					</includes>
+
+				</configuration>
+
+				<!--<configuration>
+					<excludedGroups>multimap,tims,email,btbuynet,bbc,exclude</excludedGroups>
+					<excludes>
+						<exclude>com/cineworld/web/booking/integration/BTBuynetAuthenticationIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/booking/integration/BTBuynetBookingIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/booking/integration/TIMSAllocationIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/booking/integration/TIMSAuthenticationIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/booking/integration/TIMSBookingIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/syndication/CinemasIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/syndication/ListingsIntegrationTest.java</exclude>
+						<exclude>com/cineworld/web/syndication/PerformancesIntegrationTest.java</exclude>
+					</excludes>
+					<argLine>-Xmx20482m -XX:MaxPermSize=512m</argLine>
+
+				</configuration> -->
 			</plugin>
 
 

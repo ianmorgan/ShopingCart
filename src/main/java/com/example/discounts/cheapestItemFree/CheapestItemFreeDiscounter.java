@@ -1,21 +1,20 @@
-package com.example.discounts;
+package com.example.discounts.cheapestItemFree;
 
 import com.example.Item;
+import com.example.discounts.AppliedDiscount;
+import com.example.discounts.Discounter;
+import com.example.discounts.Offer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Created by ianmorgan on 1/02/15.
+ * Keep track of the items for a "Cheapest item is free" discount model
  */
 public class CheapestItemFreeDiscounter implements Discounter {
     Map<Offer, List<Item>> matchingItems = new HashMap<Offer, List<Item>>();
 
-    public Discount applyDiscount(Item item) {
-        Discount result = null;
-        if (Discount.Type.CheapestItemFree.equals(item.discountOffer().type())) {
+    public Iterable<AppliedDiscount> checkDiscounts(Item item) {
+        if (AppliedDiscount.Type.CheapestItemFree.equals(item.discountOffer().type())) {
             Offer offer = item.discountOffer();
             List<Item> items = matchingItems.get(offer);
             if (items == null) {
@@ -25,16 +24,13 @@ public class CheapestItemFreeDiscounter implements Discounter {
             items.add(item);
 
             if (items.size() == 3) {
-                result = offer.apply(items);
                 matchingItems.remove(offer);
+                return offer.apply(items);
             }
         }
 
-        return result;
+        return Collections.EMPTY_LIST;
     }
 
-    public Discount.Type type() {
-        return Discount.Type.CheapestItemFree;
-    }
 
 }

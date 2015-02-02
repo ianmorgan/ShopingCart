@@ -1,43 +1,44 @@
 package com.example;
 
-import com.example.discounts.*;
+import com.example.discounts.AppliedDiscount;
+import com.example.discounts.Discounter;
+import com.example.discounts.cheapestItemFree.CheapestItemFreeDiscounter;
+import com.example.discounts.freeWithOtherItems.FreeWithOtherItemsDiscounter;
+import com.example.discounts.threeForTwo.ThreeForTwoDiscounter;
+import com.example.discounts.twoAtSpecialPrice.TwoAtSpecialPriceDiscounter;
 
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
 
 /**
- * Represents a supermarket checkout. In this simple the
+ * Represents a supermarket checkout. In this simple model the
  * physical checkout and the actions of the shopper are represented
  * in a single class
  */
 public class Checkout {
 
-    private List<Discounter> disounters;
+    private List<Discounter> discounters;
 
     public Checkout() {
-        disounters = new ArrayList<Discounter>();
-        disounters.add(new ThreeForTwoDiscounter());
-        disounters.add(new TwoAtSpecialPriceDiscounter());
-        disounters.add(new CheapestItemFreeDiscounter());
-        disounters.add(new FreeWithOtherItemsDiscounter());
-
+        discounters = new ArrayList<Discounter>();
+        discounters.add(new ThreeForTwoDiscounter());
+        discounters.add(new TwoAtSpecialPriceDiscounter());
+        discounters.add(new CheapestItemFreeDiscounter());
+        discounters.add(new FreeWithOtherItemsDiscounter());
     }
 
 
     public String generateReceipt(Cart cart) {
         StringBuilder sb = new StringBuilder();
-        List<Discount> discounts = new ArrayList<Discount>();
+        List<AppliedDiscount> discounts = new ArrayList<AppliedDiscount>();
 
         double total = 0;
         for (Item item : cart.items()) {
 
-            for (Discounter discounter : disounters) {
-                Discount result = discounter.applyDiscount(item);
-
-                if (result != null) {
-                    discounts.add(result);
-                    break;  //assume the business rule is only one discount possible per item
+            for (Discounter discounter : discounters) {
+                for (AppliedDiscount appliedDiscount : discounter.checkDiscounts(item)) {
+                    discounts.add(appliedDiscount);
                 }
             }
 
@@ -52,7 +53,7 @@ public class Checkout {
 
         if (discounts.size() > 0) {
             sb.append("DISCOUNTS\n");
-            for (Discount discount : discounts) {
+            for (AppliedDiscount discount : discounts) {
                 total = total - discount.discountAmount();
                 sb.append(discount.toString()).append("\n");
             }

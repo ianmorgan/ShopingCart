@@ -5,11 +5,19 @@ import com.example.Item;
 import java.util.List;
 
 /**
- * Created by ianmorgan on 1/02/15.
+ * An interface that describes an offer. An implementation is required for
+ * each type of discount. This works with a matching {@link com.example.discounts.Discounter}
+ * job is to collect matching items until a discount can be triggered.
+ *
  */
 public interface Offer {
 
-    Discount apply(List<Item> items);
+    /**
+     * Calculate the discount(s).
+     * @param items
+     * @return
+     */
+    Iterable<AppliedDiscount> apply(List<Item> items);
 
-    Discount.Type type();
+    AppliedDiscount.Type type();
 }

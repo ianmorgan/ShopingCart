@@ -7,12 +7,12 @@ import java.util.Formatter;
 /**
  * Represents a discount applied to an item in a list of matching items
  */
-public class Discount {
+public class AppliedDiscount {
     private Item item;
     private Offer offer;
     private double discountAmount;
 
-    public Discount(Item item, Offer offer, double discountAmount) {
+    public AppliedDiscount(Item item, Offer offer, double discountAmount) {
         this.item = item;
         this.offer = offer;
         this.discountAmount = discountAmount;

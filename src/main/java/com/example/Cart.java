@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ianmorgan on 31/01/15.
+ * Represents a shopping cart
  */
 public class Cart {
     private List<Item> items = new ArrayList<Item>();

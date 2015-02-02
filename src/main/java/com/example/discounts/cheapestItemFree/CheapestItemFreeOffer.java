@@ -1,7 +1,10 @@
-package com.example.discounts;
+package com.example.discounts.cheapestItemFree;
 
 import com.example.Item;
+import com.example.discounts.AppliedDiscount;
+import com.example.discounts.Offer;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -10,7 +13,7 @@ import java.util.List;
 public class CheapestItemFreeOffer implements Offer {
 
     @Override
-    public Discount apply(List<Item> items) {
+    public Iterable<AppliedDiscount> apply(List<Item> items) {
         double discount = Double.MAX_VALUE;
         Item discountedItem = null;
 
@@ -21,12 +24,12 @@ public class CheapestItemFreeOffer implements Offer {
             }
         }
 
-        return new Discount(discountedItem, this, discount);
+        return Arrays.asList(new AppliedDiscount(discountedItem, this, discount));
     }
 
     @Override
-    public Discount.Type type() {
-        return Discount.Type.CheapestItemFree;
+    public AppliedDiscount.Type type() {
+        return AppliedDiscount.Type.CheapestItemFree;
     }
 
 

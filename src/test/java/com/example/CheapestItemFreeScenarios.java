@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.discounts.CheapestItemFreeOffer;
+import com.example.discounts.cheapestItemFree.CheapestItemFreeOffer;
 import org.testng.annotations.Test;
 
 
@@ -29,7 +29,6 @@ public class CheapestItemFreeScenarios extends BaseCheckoutScenarios {
         cart.addItem(new Item("Sugar", 1.19, offer1));
         cart.addItem(new Item("Tea", 2.01, offer1));
         cart.addItem(new Item("Biscuits", 0.99, offer1));
-
 
         assertReceipt("Coffee     £  3.99\n" +
                 "Sugar      £  1.19\n" +

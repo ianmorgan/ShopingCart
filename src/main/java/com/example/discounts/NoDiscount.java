@@ -2,6 +2,7 @@ package com.example.discounts;
 
 import com.example.Item;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -9,12 +10,12 @@ import java.util.List;
  */
 public class NoDiscount implements Offer {
     @Override
-    public Discount apply(List<Item> items) {
-        return null;
+    public Iterable<AppliedDiscount> apply(List<Item> items) {
+        return Collections.EMPTY_LIST;
     }
 
     @Override
-    public Discount.Type type() {
-        return Discount.Type.NoDiscount;
+    public AppliedDiscount.Type type() {
+        return AppliedDiscount.Type.NoDiscount;
     }
 }
