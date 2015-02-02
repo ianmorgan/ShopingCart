@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Represents a supermarket checkout. In this simple model the
  * physical checkout and the actions of the shopper are represented
- * in a single class
+ * in a single class.
  */
 public class Checkout {
 
@@ -27,7 +27,7 @@ public class Checkout {
         discounters.add(new CheapestItemFreeDiscounter());
         discounters.add(new FreeWithOtherItemsDiscounter());
     }
-    
+
     public String generateReceipt(Cart cart) {
         StringBuilder sb = new StringBuilder();
         List<AppliedDiscount> discounts = new ArrayList<AppliedDiscount>();
@@ -39,7 +39,7 @@ public class Checkout {
                     discounts.add(appliedDiscount);
                 }
             }
-            total = total + item.price();
+            total += item.price();
             if (sb.length() > 0) {
                 sb.append("\n");
             }
@@ -51,7 +51,7 @@ public class Checkout {
         if (discounts.size() > 0) {
             sb.append("DISCOUNTS\n");
             for (AppliedDiscount discount : discounts) {
-                total = total - discount.discountAmount();
+                total -= discount.discountAmount();
                 sb.append(discount.toString()).append("\n");
             }
         }

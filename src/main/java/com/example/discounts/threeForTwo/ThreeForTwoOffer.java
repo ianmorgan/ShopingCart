@@ -22,5 +22,8 @@ public class ThreeForTwoOffer implements DiscountOffer {
         return AppliedDiscount.Type.TwoForThree;
     }
 
-
+    @Override
+    public String label() {
+        return type().label();
+    }
 }

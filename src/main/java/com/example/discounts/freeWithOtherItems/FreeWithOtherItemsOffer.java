@@ -3,6 +3,7 @@ package com.example.discounts.freeWithOtherItems;
 import com.example.Item;
 import com.example.discounts.AppliedDiscount;
 import com.example.discounts.DiscountOffer;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -39,10 +40,9 @@ public class FreeWithOtherItemsOffer implements DiscountOffer {
 
     @Override
     public Iterable<AppliedDiscount> apply(List<Item> items) {
-        Item discountedItem = items.get(1);
-        //return new Discount(discountedItem, discountedItem.discountOffer(), discount);
-
-        return null;
+        // this logic is within the Discounter, which suggests
+        // this separation is not such a good idea
+        throw new NotImplementedException();
     }
 
     @Override
@@ -50,5 +50,8 @@ public class FreeWithOtherItemsOffer implements DiscountOffer {
         return AppliedDiscount.Type.FreeWithOtherItemsOffer;
     }
 
-
+    @Override
+    public String label() {
+        return type().label();
+    }
 }

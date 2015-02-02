@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class FreeWithOtherItemsDiscounter implements Discounter {
 
-    // it is possible for multiple instances of this offer to be running.
     private int primaryCount;
     private int unclaimedFreeCount;
     private List<Item> possibleFreeItems = new ArrayList<Item>();
@@ -34,7 +33,6 @@ public class FreeWithOtherItemsDiscounter implements Discounter {
             } else {
                 possibleFreeItems.add(item);
             }
-
 
             // add discounts for any eligible free items
             int numberToGiveAway = Math.min(unclaimedFreeCount, possibleFreeItems.size());

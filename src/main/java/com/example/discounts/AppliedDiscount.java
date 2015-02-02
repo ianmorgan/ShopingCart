@@ -22,12 +22,12 @@ public class AppliedDiscount {
         return item;
     }
 
-    public Type discountRule() {
-        return offer.type();
-    }
-
     public double discountAmount() {
         return discountAmount;
+    }
+
+    public DiscountOffer offer() {
+        return offer;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class AppliedDiscount {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb);
         formatter.format("%-10s £ %5.2f (%s)",
-                item.name(), -discountAmount(), discountRule().label());
+                item.name(), -discountAmount(), offer().label());
         return sb.toString();
     }
 

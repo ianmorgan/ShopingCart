@@ -32,5 +32,10 @@ public class CheapestItemFreeOffer implements DiscountOffer {
         return AppliedDiscount.Type.CheapestItemFree;
     }
 
+    @Override
+    public String label() {
+        return type().label();
+    }
+
 
 }

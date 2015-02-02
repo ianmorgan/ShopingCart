@@ -12,8 +12,10 @@ import java.util.List;
  */
 public class TwoAtSpecialPriceOffer implements DiscountOffer {
     private double discount;
+    private String label;
 
-    public TwoAtSpecialPriceOffer(double discount) {
+    public TwoAtSpecialPriceOffer(String label, double discount) {
+        this.label = label;
         this.discount = discount;
     }
 
@@ -26,6 +28,11 @@ public class TwoAtSpecialPriceOffer implements DiscountOffer {
     @Override
     public AppliedDiscount.Type type() {
         return AppliedDiscount.Type.TwoAtSpecialPrice;
+    }
+
+    @Override
+    public String label() {
+        return this.label;
     }
 
 

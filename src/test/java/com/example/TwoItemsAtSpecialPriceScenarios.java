@@ -3,14 +3,12 @@ package com.example;
 import com.example.discounts.twoAtSpecialPrice.TwoAtSpecialPriceOffer;
 import org.testng.annotations.Test;
 
-/**
- * Created by ianmorgan on 1/02/15.
- */
+
 @Test
 public class TwoItemsAtSpecialPriceScenarios extends BaseCheckoutScenarios {
 
-    private TwoAtSpecialPriceOffer offer1 = new TwoAtSpecialPriceOffer(1.98);
-    private TwoAtSpecialPriceOffer offer2 = new TwoAtSpecialPriceOffer(0.01);
+    private TwoAtSpecialPriceOffer offer1 = new TwoAtSpecialPriceOffer("Managers Special Offer", 1.98);
+    private TwoAtSpecialPriceOffer offer2 = new TwoAtSpecialPriceOffer("Save a penny!", 0.01);
 
 
     @Test
@@ -21,7 +19,7 @@ public class TwoItemsAtSpecialPriceScenarios extends BaseCheckoutScenarios {
         assertReceipt("Coffee     £  3.99\n" +
                 "Coffee     £  3.99\n" +
                 "DISCOUNTS\n" +
-                "Coffee     £ -1.98 (Buy 2 offer)\n" +
+                "Coffee     £ -1.98 (Managers Special Offer)\n" +
                 "TOTAL      £  6.00");
     }
 
@@ -45,7 +43,7 @@ public class TwoItemsAtSpecialPriceScenarios extends BaseCheckoutScenarios {
                 "Coffee     £  3.99\n" +
                 "Coffee     £  3.99\n" +
                 "DISCOUNTS\n" +
-                "Coffee     £ -1.98 (Buy 2 offer)\n" +
+                "Coffee     £ -1.98 (Managers Special Offer)\n" +
                 "TOTAL      £  9.99");
     }
 
@@ -65,9 +63,9 @@ public class TwoItemsAtSpecialPriceScenarios extends BaseCheckoutScenarios {
                 "Milk       £  0.50\n" +
                 "Coffee     £  3.99\n" +
                 "DISCOUNTS\n" +
-                "Coffee     £ -1.98 (Buy 2 offer)\n" +
-                "Milk       £ -0.01 (Buy 2 offer)\n" +
-                "Coffee     £ -1.98 (Buy 2 offer)\n" +
+                "Coffee     £ -1.98 (Managers Special Offer)\n" +
+                "Milk       £ -0.01 (Save a penny!)\n" +
+                "Coffee     £ -1.98 (Managers Special Offer)\n" +
                 "TOTAL      £ 12.99");
     }
 

@@ -21,9 +21,9 @@ public class BaseCheckoutScenarios {
         // From the checkout results we can generate an example text receipt
         // which is easy to read and verify in scenarios.
         //
-        // In this example the logic is mostly relying upon toString() methods. In production code this would
-        // of course be broken into a more formal model / view layer,
-        // allowing different type of presentation to be injected in.
+        // In this example the logic is mostly relying upon toString() methods. In
+        // production code this would of course be broken into a more formal
+        // model / view layer, allowing different type of presentation to be injected in.
 
         String receipt = checkout.generateReceipt(cart);
         assertEquals(receipt, expected);
