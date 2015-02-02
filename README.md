@@ -2,7 +2,7 @@ Shopping Cart
 =============
 
 Simple Shopping Cart Checkout with various discount rules. New rules can be added by implementing
-the _Discounter_ interface.
+the _Discounter_ and _DiscountOffer_ interfaces.
 
 
 Requires:
