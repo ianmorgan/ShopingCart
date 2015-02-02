@@ -36,12 +36,6 @@ public class FreeWithOtherItemsScenarios extends BaseCheckoutScenarios {
     public void freeItemsIfOtherItemsPurchasedTriggersOutOfOrder() {
         Item coffee = new Item("Coffee", 3.99, oneFreeWithThree);
         Item tea = new Item("Tea", 1.95, oneFreeWithThree);
-
-        // OK - so this has hit the point where the domain model
-        //      is too simple. There is really a join entity
-        //      that relates items to offers - this would also
-        //      make it easier to model situations where multiple
-        //      offers can be applied to any item.
         oneFreeWithThree.markPrimaryItem(coffee);
 
         cart.addItem(coffee);
@@ -62,12 +56,6 @@ public class FreeWithOtherItemsScenarios extends BaseCheckoutScenarios {
     public void itemsInExcessOfFreeLimitIgnored() {
         Item coffee = new Item("Coffee", 3.99, oneFreeWithThree);
         Item tea = new Item("Tea", 1.95, oneFreeWithThree);
-
-        // OK - so this has hit the point where the domain model
-        //      is too simple. There is really a join entity
-        //      that relates items to offers - this would also
-        //      make it easier to model situations where multiple
-        //      offers can be applied to any item.
         oneFreeWithThree.markPrimaryItem(coffee);
 
         cart.addItem(tea);
@@ -76,13 +64,14 @@ public class FreeWithOtherItemsScenarios extends BaseCheckoutScenarios {
         cart.addItem(tea);
         cart.addItem(coffee);
 
-        assertReceipt("Coffee     £  3.99\n" +
+        assertReceipt("Tea        £  1.95\n" +
+                "Coffee     £  3.99\n" +
                 "Coffee     £  3.99\n" +
                 "Tea        £  1.95\n" +
                 "Coffee     £  3.99\n" +
                 "DISCOUNTS\n" +
                 "Tea        £ -1.95 (Free with others)\n" +
-                "TOTAL      £ 11.97");
+                "TOTAL      £ 13.92");
     }
 
 

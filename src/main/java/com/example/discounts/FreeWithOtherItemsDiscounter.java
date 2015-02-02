@@ -17,22 +17,55 @@ public class FreeWithOtherItemsDiscounter implements Discounter {
         if (item.discountOffer() instanceof FreeWithOtherItemsOffer) {
             FreeWithOtherItemsOffer offer = (FreeWithOtherItemsOffer) item.discountOffer();
 
-
             if (offer.isPrimaryItem(item)) {
                 // If its primary we are simply recording it
                 State state = current();
 
                 if (state.primary.size() < offer.numberToBuy()) {
                     state.primary.add(item);
+
+                    // reached threshold - can we apply discounts
+                    if (state.primary.size() == offer.numberToBuy()){
+
+                        // there may be items that should be free
+                        result = calculateDiscount(state, offer);
+                        if (offerExhausted(state, offer)) {
+                            runningOffers.remove(0);
+                        }
+
+                        //start new, with empty state
+                        runningOffers.add(new State());
+                    }
+
+
+
+                    // todo - adding the last item triggers the rule
                 } else {
                     State next = new State();
                     next.primary.add(item);
                     runningOffers.add(next);
                 }
-            }
-            else {
-                State state = current();
+            } else {
+                // always check against the oldest offer
+                if (runningOffers.size()>0) {
+                    State state = runningOffers.get(0);
 
+                    state.secondary.add(item);
+
+                    // reached threshold - can we apply discounts
+                    if (state.primary.size() == offer.numberToBuy()) {
+
+                        // there may be items that should be free
+                        result = calculateDiscount(state, offer);
+                        if (offerExhausted(state, offer)) {
+                            runningOffers.remove(0);
+                        }
+
+                        //start new, with empty state
+                        //runningOffers.add(new State());
+                    }
+
+                }
             }
 
 
@@ -68,8 +101,8 @@ public class FreeWithOtherItemsDiscounter implements Discounter {
 
         // the tail
         return runningOffers.get(runningOffers.size() - 1);
-
     }
+
 
     private Discount calculateDiscount(State state, FreeWithOtherItemsOffer offer) {
         if (state.secondary.size() > 0) {
