@@ -38,7 +38,7 @@ public class FreeWithOtherItemsScenarios extends BaseCheckoutScenarios {
                 "Tea        £  1.95\n" +
                 "DISCOUNTS\n" +
                 "Tea        £ -1.95 (Free with others)\n" +
-                "TOTAL      £ 11.97");
+                "TOTAL      £ 11.96");
     }
 
     @Test
