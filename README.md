@@ -14,3 +14,5 @@ Requires:
 To run tests:
 
 * mvn clean test
+
+Dummy commit for travis
